@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">	
+<title>D CODE SHOW</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+	.error-msg{
+		color: red;
+		float: left;
+		display: none
+	}
+	.float-right{
+		float: right;
+	}
+</style>
+</head>
+<body>
+<h4>Text Area with Character Count</h4>
+
+<!--even you can set char limit-->
+<textarea id="count" class="form-control"></textarea>
+<div class="d-flex">
+	<p class="error-msg">Character Limit Exceed</p>
+	<p class="float-right"><span id="countno">0</span>/10</p>
+	<br clear="both">
+</div>
+
+
+
+<script src="js/jquery-latest.min.js"></script>
+<script>
+	$(function(){
+		$("#count").keyup(function(event) {
+			$("#countno").text($(this).val().length);
+			var x = $(this).val().length;
+			if (x>10) 
+			{
+				$(this).css("border",'1px solid red');
+				$(".error-msg").show();
+			}
+			else
+			{
+				$(".error-msg").hide();
+				$(this).css("border",'');
+			}
+		});
+	})
+</script>
+</body>
+</html>
